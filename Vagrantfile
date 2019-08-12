@@ -34,7 +34,7 @@ bridged_if = ENV['BRIDGE_IF'] || "enp0s25"
 
 Vagrant.configure("2") do |config|
     config.vm.box = "hkn-base"
-    config.vm.hostname = "sec0y"
+    config.vm.hostname = "sec0x"
     config.vm.network "public_network", bridge: bridged_if
     config.vm.network "forwarded_port", guest: 8081, host: 8081 ## for secure connection
     config.vm.network "forwarded_port", guest: 8080, host: 8080 ## for insecure connection
@@ -48,7 +48,7 @@ Vagrant.configure("2") do |config|
                                 ## vagrant plugin install vagrant-disksize
     config.vm.provider :virtualbox do |vb|
         # set name in virtualbox
-        vb.name = "sec0y"
+        vb.name = "sec0x"
         vb.customize ["modifyvm", :id, "--memory", "4096"] ## might be customized according to your local computer resources
         # enable promiscuous mode on the public network
         #vb.customize ["modifyvm", :id, "--nicpromisc2", "allow-all"]
