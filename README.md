@@ -1,4 +1,4 @@
-#### Creating preinstalled box in order to create local Haaukins
+## Creating preinstalled box in order to create local Haaukins
 
 This is a repository to create pre-configured environment to run Haaukins on it.
 
@@ -14,6 +14,7 @@ Before building the box, make sure that the following environment variables are 
 ### Demonstration of steps
 
 [![asciicast](https://asciinema.org/a/LDaeaNm1I3mxfXJSmUC7q4cHl.svg)](https://asciinema.org/a/LDaeaNm1I3mxfXJSmUC7q4cHl)
+
 
 ### Build required image with following command
 
