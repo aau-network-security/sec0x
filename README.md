@@ -13,7 +13,8 @@ Before building the box, make sure that the following environment variables are 
 
 ### Demonstration of steps
 
-<script id="asciicast-LDaeaNm1I3mxfXJSmUC7q4cHl" src="https://asciinema.org/a/LDaeaNm1I3mxfXJSmUC7q4cHl.js" async></script>
+[![asciicast](https://asciinema.org/a/LDaeaNm1I3mxfXJSmUC7q4cHl.svg)](https://asciinema.org/a/LDaeaNm1I3mxfXJSmUC7q4cHl)
+
 
 ### Build required image with following command
 
