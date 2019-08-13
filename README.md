@@ -2,6 +2,19 @@
 
 This is a repository to create pre-configured environment to run Haaukins on it.
 
+Before attempting to create pre-configured VM on your local computer, make sure that required software installed to your computer
+
+- Docker
+  - Linux   : https://docs.docker.com/install/linux/docker-ce/ubuntu/
+  - Windows : https://docs.docker.com/docker-for-windows/install/
+  - MacOS   : https://docs.docker.com/v17.12/docker-for-mac/install/
+
+- Golang (https://golang.org/dl/)
+- Vbox   (https://www.virtualbox.org/wiki/Downloads)
+- Vagrant (https://www.vagrantup.com/downloads.html)
+
+_* This repository might not be needed if you want to use your actual Linux environment instead of running  VM under your machine *_
+
 ### Setting paths and sync them with your local
 
 Before building the box, make sure that the following environment variables are defined:
@@ -27,3 +40,9 @@ vagrant up
 vagrant ssh
 
 ```
+
+### Examples to configuration files
+
+Can be observed from following place:
+
+- [Example Daemon Configuration Files] (https://github.com/aau-network-security/haaukins/blob/master/app/daemon/readme.md)
