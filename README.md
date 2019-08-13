@@ -2,18 +2,22 @@
 
 This is a repository to create pre-configured environment to run Haaukins on it.
 
+### Prerequisites
+
 Before attempting to create pre-configured VM on your local computer, make sure that required software installed to your computer
 
-- Docker
-  - Linux   : https://docs.docker.com/install/linux/docker-ce/ubuntu/
-  - Windows : https://docs.docker.com/docker-for-windows/install/
-  - MacOS   : https://docs.docker.com/v17.12/docker-for-mac/install/
+- __Docker__
+  - *Linux*   : https://docs.docker.com/install/linux/docker-ce/ubuntu/
+  - *Windows* : https://docs.docker.com/docker-for-windows/install/
+  - *MacOS*   : https://docs.docker.com/v17.12/docker-for-mac/install/
 
-- Golang (https://golang.org/dl/)
-- Vbox   (https://www.virtualbox.org/wiki/Downloads)
-- Vagrant (https://www.vagrantup.com/downloads.html)
+- __Golang__ (https://golang.org/dl/)
+- __Vbox__   (https://www.virtualbox.org/wiki/Downloads)
+- __Vagrant__ (https://www.vagrantup.com/downloads.html)
 
-_* This repository might not be needed if you want to use your actual Linux environment instead of running  VM under your machine *_
+In addition mentioned tools above, you should be sure that you have enough resources (CPU, Memory).
+
+_This repository might not be needed if you want to use your actual Linux environment instead of running  VM under your machine_
 
 ### Setting paths and sync them with your local
 
