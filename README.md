@@ -49,4 +49,4 @@ vagrant ssh
 
 Can be observed from following place:
 
-- [Example Daemon Configuration Files] (https://github.com/aau-network-security/haaukins/blob/master/app/daemon/readme.md)
+- [Example Daemon Configuration Files](https://github.com/aau-network-security/haaukins/blob/master/app/daemon/readme.md)
