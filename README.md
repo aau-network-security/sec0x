@@ -37,12 +37,13 @@ HKN_HOST=localhost HKN_SSL_OFF=true go run app/client/main.go event create boot 
 
 **Regarding to flags on command *
 
+```
 (-n or --name): Title of the event
 (-a or --available): Requested number of labs
 (-c or --capacity): Capacity of requested event
 (-e or --exercises): Set of exercise tags (which are defined under exercise.yml file)
 (-f or --frontend) : Virtual machine to use
-
+```
 ### Setting paths and sync them with your local
 
 Before building the box, make sure that the following environment variables are defined:
