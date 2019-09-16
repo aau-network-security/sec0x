@@ -19,6 +19,30 @@ In addition mentioned tools above, you should be sure that you have enough resou
 
 _This repository might not be needed if you want to use your actual Linux environment instead of running  VM under your machine_
 
+
+Make sure that you have pre-configured box installed in your local computer by given instructions from the repo sec0x
+
+Set some required environment variables into your bash profile before running the box under vagrant
+```
+export VMDKS=...
+export VMDKS=...
+export CONFIGS=...
+export FRNTENDS=....
+```
+After having set of given variables in your bash profile, you are good to go !
+```console 
+HKN_HOST=localhost HKN_SSL_OFF=true go run app/client/main.go event create boot -n "Boot " -a 5 -c 10 -e xss,scan,hb,phish -f kali
+```
+HKN_HOST=localhost HKN_SSL_OFF=true go run app/client/main.go event create boot -n "Boot " -a 5 -c 10 -e xss,scan,hb,phish -f kali
+
+**Regarding to flags on command *
+
+(-n or --name): Title of the event
+(-a or --available): Requested number of labs
+(-c or --capacity): Capacity of requested event
+(-e or --exercises): Set of exercise tags (which are defined under exercise.yml file)
+(-f or --frontend) : Virtual machine to use
+
 ### Setting paths and sync them with your local
 
 Before building the box, make sure that the following environment variables are defined:
