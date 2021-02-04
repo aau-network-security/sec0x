@@ -61,7 +61,7 @@ Before building the box, make sure that the following environment variables are 
 ### Build required image with following command
 
 ```
-cd sec0x/hkn-base/
+cd sec0x/nap-base/
 ./build.sh
 cd ../
 vagrant up

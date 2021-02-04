@@ -1,7 +1,7 @@
 #!/bin/bash
-vagrant box remove --force hkn-base
+vagrant box remove --force nap-base
 vagrant destroy --force
 vagrant up --provision
-vagrant package --output hkn-base.box
-vagrant box add hkn-base.box --name hkn-base
-rm hkn-base.box
+vagrant package --output nap-base.box
+vagrant box add nap-base.box --name nap-base
+rm nap-base.box

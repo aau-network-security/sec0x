@@ -5,9 +5,9 @@ VBOX_VERSION="5.2"
 # these two values should match!
 VBOX_GUEST_VERSION="5.2.18"
 VBOX_EXT_VERSION="5.2.18"
-GO_VERSION="1.13"
+GO_VERSION="1.15"
 COMPOSE_VERSION="1.22.0"
-PROTOBUF_VERSION="3.6.1"
+PROTOBUF_VERSION="3.14.0"
 
 #update our repos
 apt-get update
@@ -79,6 +79,15 @@ unzip /tmp/protobuf.zip -d /tmp/protobuf
 mv /tmp/protobuf/bin/* /usr/local/bin/
 mv /tmp/protobuf/include/* /usr/local/include/
 
+## install go 
+wget https://golang.org/dl/go1.15.7.linux-amd64.tar.gz
+tar -C /usr/local -xzf go1.15.7.linux-amd64.tar.gz 
+export PATH=$PATH:/usr/local/go/bin
+
+## install openvswitch
+apt install build-essential fakeroot graphviz autoconf automake bzip2 debhelper dh-autoreconf libssl-dev libtool openssl procps python-all python-qt4 python-twisted-conch python-zopeinterface module-assistant dkms make libc6-dev python-argparse uuid-runtime netbase kmod python-twisted-web iproute2 ipsec-tools openvswitch-switch  -y
+sudo ovs-vswitchd
+
 # fix permissions for scratch
 chown vagrant:vagrant -R /scratch
 
@@ -86,8 +95,10 @@ chown vagrant:vagrant -R /scratch
 rm -rf /var/lib/apt/lists/*
 rm -rf /tmp/*
 apt-get clean
+rm -rf go1.15.7.linux-amd64.tar.gz
 
 #cleanup
 dd if=/dev/zero of=/EMPTY bs=1M
 rm -f /EMPTY
 cat /dev/null > ~/.bash_history && history -c && exit
+
