@@ -39,10 +39,19 @@ Vagrant.configure("2") do |config|
     config.vm.network "forwarded_port", guest: 8081, host: 8081 ## for secure connection
     config.vm.network "forwarded_port", guest: 8080, host: 8080 ## for insecure connection
     config.vm.network "forwarded_port", guest: 5454, host: 5454
+    config.vm.network "forwarded_port", guest: 8000, host: 8000
+    config.vm.network "forwarded_port", guest: 8003, host: 8003
+    config.vm.network "forwarded_port", guest: 5432, host: 5432
+    config.vm.network "forwarded_port", guest: 50095, host: 50095
+    config.vm.network "forwarded_port", guest: 27017, host: 27017
+    config.vm.network "forwarded_port", guest: 50051, host: 50051
+    config.vm.network "forwarded_port", guest: 9999, host: 9999
     config.vm.synced_folder VMDKS, "/scratch/virtualbox-vmdks"
     config.vm.synced_folder GOPATH, "/scratch/go"
+    config.vm.synced_folder HAAUKINSAPI, "/scratch/personal/haaukins-api"
     config.vm.synced_folder CONFIGS, "/scratch/configs"
     config.vm.synced_folder FRNTENDS, "/scratch/ova"
+    config.vm.synced_folder DESKTOP, "/scratch/Desktop"
     config.ssh.forward_agent = true
     config.disksize.size='50GB' ## this might not be required, in order to use this function install VBOX plugin
                                 ## vagrant plugin install vagrant-disksize
