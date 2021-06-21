@@ -24,11 +24,16 @@ Make sure that you have pre-configured box installed in your local computer by g
 
 Set some required environment variables into your bash profile before running the box under vagrant
 ```
-export VMDKS=...
-export VMDKS=...
-export CONFIGS=...
-export FRNTENDS=....
+export VMDKS=$HOME/Documents/haaukins_files/vmdks
+export CONFIGS=$HOME/Documents/haaukins_files/configs
+export FRNTENDS=$HOME/Documents/haaukins_files/frontends
+export DESKTOP=$HOME/Desktop
+export HAAUKINSAPI=$HOME/Documents/haaukins_files/haaukins_api
+export GOPATH=$HOME/go
 ```
+
+> Note that paths are shown as an example, so they might change according to your environment, please be aware of it. 
+
 After having set of given variables in your bash profile, you are good to go !
 ```console 
 HKN_HOST=localhost HKN_SSL_OFF=true go run app/client/main.go event create boot -n "Boot " -a 5 -c 10 -e xss,scan,hb,phish -f kali
@@ -55,12 +60,15 @@ Before building the box, make sure that the following environment variables are 
 
 ### Demonstration of steps
 
+Following cast is showing the process of making the vagrant up and ready after, you have cloned the repository. 
+
 [![asciicast](https://asciinema.org/a/LDaeaNm1I3mxfXJSmUC7q4cHl.svg)](https://asciinema.org/a/LDaeaNm1I3mxfXJSmUC7q4cHl)
 
 
-### Build required image with following command
+### Build required image with following command 
 
 ```
+git clone https://github.com/aau-network-security/sec0x
 cd sec0x/hkn-base/
 ./build.sh
 cd ../
