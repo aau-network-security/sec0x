@@ -1,22 +1,23 @@
 #!/usr/bin/env bash
 
 # version stuff
-VBOX_VERSION="5.2"
+VBOX_VERSION="6.1"
 # these two values should match!
-VBOX_GUEST_VERSION="5.2.18"
-VBOX_EXT_VERSION="5.2.18"
-GO_VERSION="1.12"
+VBOX_GUEST_VERSION="6.1.22"
+VBOX_EXT_VERSION="6.1.22"
+GO_VERSION="1.16.4"
 COMPOSE_VERSION="1.22.0"
 PROTOBUF_VERSION="3.6.1"
 
 #update our repos
-apt-get update
+apt-get update -y
 
 #install basic tools
 apt-get install --no-install-recommends -yq apt-transport-https git vim sudo nmap tcpdump iproute2 net-tools curl wget unzip
 
 # packages for all vbox related building
 apt-get install --no-install-recommends -yq build-essential linux-headers-$(uname -r) wget
+
 
 # lets install our guest additions
 wget http://download.virtualbox.org/virtualbox/${VBOX_GUEST_VERSION}/VBoxGuestAdditions_${VBOX_GUEST_VERSION}.iso -O /tmp/guestadditions.iso
