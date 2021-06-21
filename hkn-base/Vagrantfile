@@ -2,11 +2,11 @@
 # vi: set ft=ruby :
 
 Vagrant.configure("2") do |config|
-    config.vm.box = "debian/stretch64"
+    config.vm.box = "ubuntu/bionic64"
     config.vm.provision :shell, path: "provision.sh"
 
 
     config.vm.provider :virtualbox do |vb|
-        vb.name = "debian-stretch-base"
+        vb.name = "ubuntu-bionic64"
     end
 end
