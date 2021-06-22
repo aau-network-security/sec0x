@@ -78,6 +78,13 @@ vagrant ssh
 
 ```
 
+Install disksize plugin:
+
+```bash 
+$ vagrant plugin install vagrant-disksize
+```
+
+
 ### Examples to configuration files
 
 Can be observed from following place:
