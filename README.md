@@ -22,41 +22,28 @@ _This repository might not be needed if you want to use your actual Linux enviro
 
 Make sure that you have pre-configured box installed in your local computer by given instructions from the repo sec0x
 
-Set some required environment variables into your bash profile before running the box under vagrant
-```
-export VMDKS=$HOME/Documents/haaukins_files/vmdks
-export CONFIGS=$HOME/Documents/haaukins_files/configs
-export FRNTENDS=$HOME/Documents/haaukins_files/frontends
-export DESKTOP=$HOME/Desktop
-export HAAUKINSAPI=$HOME/Documents/haaukins_files/haaukins_api
-export GOPATH=$HOME/go
-```
+Include your local paths to sync folders with Virtual environment. Update [.env.example](.env.example) and rename it to ```.env``` in the same place where [Vagrantfile](./Vagrantfile) is located. 
 
-> Note that paths are shown as an example, so they might change according to your environment, please be aware of it. 
-
-After having set of given variables in your bash profile, you are good to go !
-```console 
-HKN_HOST=localhost HKN_SSL_OFF=true go run app/client/main.go event create boot -n "Boot " -a 5 -c 10 -e xss,scan,hb,phish -f kali
+Content of example .env file: 
+```raw 
+GO_PATH=$HOME/go 
+VMDKS=<path-to-vmdks-folder-in-your-local-computer>
+HKND_CONFIGS=<path-to-configs-folder-in-your-local-computer>
+HKND_FRONTENDS=<path-to-frontends-folder-in-your-local-computer>
+HKND_PROJECTS=<path-to-projects-folder-in-your-local-computer>
 ```
-HKN_HOST=localhost HKN_SSL_OFF=true go run app/client/main.go event create boot -n "Boot " -a 5 -c 10 -e xss,scan,hb,phish -f kali
+## Check this requirements before building the box
 
-**Regarding to flags on command *
+Before building the box make sure about followings:
+ 
+ - Generated ```.env``` file before building the box as described above. 
 
-```
-(-n or --name): Title of the event
-(-a or --available): Requested number of labs
-(-c or --capacity): Capacity of requested event
-(-e or --exercises): Set of exercise tags (which are defined under exercise.yml file)
-(-f or --frontend) : Virtual machine to use
-```
-### Setting paths and sync them with your local
-
-Before building the box, make sure that the following environment variables are defined:
-- `GOPATH`- your default GOPATH should be in synced_folder format
-- `BRIDGE_IF` - the bridged network interface. If empty, `enp0s25` is used    
-- `VMDKS` - this is the place where your created VMs take place
-- `CONFIGS`- configuration files directory should be specified
-- `FRNTENDS`- in order to create events, frontends (.ova) files should be placed under defined directory (e.g : /Users/demo/FRNTENDS/)
+- Installed plugins to have working Vagrantfile
+  ```bash 
+   # install vagrant-disksize  
+   $ vagrant plugin install vagrant-disksize 
+   # install vagrant-env
+  ```
 
 ### Demonstration of steps
 
@@ -78,15 +65,9 @@ vagrant ssh
 
 ```
 
-Install disksize plugin:
-
-```bash 
-$ vagrant plugin install vagrant-disksize
-```
-
 
 ### Examples to configuration files
 
 Can be observed from following place:
 
-- [Example Daemon Configuration Files](https://github.com/aau-network-security/haaukins/blob/master/app/daemon/readme.md)
+- [Example Daemon Configuration Files](https://github.com/aau-network-security/haaukins/wiki/Configuring-the-daemon)
