@@ -1,33 +1,6 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-GOPATH = ENV['GOPATH'] || ""
-if GOPATH == ""
-    puts "GOPATH is undefined"
-    exit!
-end
-## The directory of .ova files will be synced into VM machine
-## which is created with the Vagrantfile
-FRNTENDS = ENV['FRNTENDS']
-if FRNTENDS == ""
-    puts "FRNTENDS PATH is undefined"
-    exit!
-end
-## The directory of configuration files will be synced into VM machine,
-## which is created under your machine !
-CONFIGS = ENV['CONFIGS']
-if CONFIGS == ""
-    puts "CONFIGS PATH is undefined"
-    exit!
-end
-## Inside sec0x, there will be VMs (events VMs (created frontends))
-## (so we may say nested VM situation),
-VMDKS = ENV['VMDKS'] || ""
-if VMDKS == ""
-    puts "VMDKS is undefined"
-    exit!
-end
-
 bridged_if = ENV['BRIDGE_IF'] || "enp0s25"
 # puts "Bridged network interface: " + bridged_if
 # puts "Synced Go directory: " + GOPATH
@@ -35,6 +8,7 @@ bridged_if = ENV['BRIDGE_IF'] || "enp0s25"
 Vagrant.configure("2") do |config|
     config.vm.box = "hkn-base"
     config.vm.hostname = "sec0x"
+    config.env.enable # enable .env variable to be used 
     config.vm.network "public_network", bridge: bridged_if
     config.vm.network "forwarded_port", guest: 8081, host: 8081 ## for secure connection
     config.vm.network "forwarded_port", guest: 8080, host: 8080 ## for insecure connection
@@ -44,14 +18,16 @@ Vagrant.configure("2") do |config|
     config.vm.network "forwarded_port", guest: 5432, host: 5432
     config.vm.network "forwarded_port", guest: 50095, host: 50095
     config.vm.network "forwarded_port", guest: 27017, host: 27017
-    config.vm.network "forwarded_port", guest: 50051, host: 50051
+    # 50051 is used for launchd process on macOS 
+    config.vm.network "forwarded_port", guest: 50051, host: 1234
     config.vm.network "forwarded_port", guest: 9999, host: 9999
-    config.vm.synced_folder VMDKS, "/scratch/virtualbox-vmdks"
-    config.vm.synced_folder GOPATH, "/scratch/go"
-    config.vm.synced_folder HAAUKINSAPI, "/scratch/personal/haaukins-api"
-    config.vm.synced_folder CONFIGS, "/scratch/configs"
-    config.vm.synced_folder FRNTENDS, "/scratch/ova"
-    config.vm.synced_folder DESKTOP, "/scratch/Desktop"
+    # vagrant plugin install vagrant-env
+    # in order to use ENV file we need to install vagrant-env 
+    config.vm.synced_folder ENV['VMDKS'], "/scratch/virtualbox-vmdks"
+    config.vm.synced_folder ENV['GO_PATH'], "/scratch/go"
+    config.vm.synced_folder ENV['HKND_CONFIGS'], "/scratch/configs"
+    config.vm.synced_folder ENV['HKND_PROJECTS'], "/scratch/projects"
+    config.vm.synced_folder ENV['HKND_FRONTENDS'], "/scratch/ova"
     config.ssh.forward_agent = true
     config.disksize.size='50GB' ## this might not be required, in order to use this function install VBOX plugin
                                 ## vagrant plugin install vagrant-disksize

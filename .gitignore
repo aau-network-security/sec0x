@@ -1,3 +1,5 @@
 .vagrant/
 hkn-base/.vagrant
 .DS_store
+# do not include actual .env file
+.env
